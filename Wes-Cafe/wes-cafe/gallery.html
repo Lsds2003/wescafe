@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+    <link rel="icon" href="asset/IMG/profile1-logo.jpg" sizes="200px" />
+    <style>
+      h1 {
+        font-family: Satisfy;
+        font-size: 50px;
+        text-align: center;
+        color: black;
+        padding: 1%;
+      }
+
+      #gallery {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+
+        -webkit-column-gap: 20px;
+        -moz-column-gap: 20px;
+        column-gap: 20px;
+      }
+
+      @media (max-width: 1200px) {
+        #gallery {
+          -webkit-column-count: 3;
+          -moz-column-count: 3;
+          column-count: 3;
+
+          -webkit-column-gap: 20px;
+          -moz-column-gap: 20px;
+          column-gap: 20px;
+        }
+      }
+
+      @media (max-width: 800px) {
+        #gallery {
+          -webkit-column-count: 2;
+          -moz-column-count: 2;
+          column-count: 2;
+
+          -webkit-column-gap: 20px;
+          -moz-column-gap: 20px;
+          column-gap: 20px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        #gallery {
+          -webkit-column-count: 1;
+          -moz-column-count: 1;
+          column-count: 1;
+        }
+      }
+      .card {
+        width: 100%;
+        height: auto;
+        margin: 4% auto;
+        box-shadow: -3px 5px 15px #000;
+        cursor: pointer;
+        -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+      }
+      .modal-img {
+        width: 100%;
+        height: auto;
+      }
+      .modal-body {
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gallery</h1>
+    <hr />
+    <div id="gallery" class="container-fluid">
+      <img
+        src="asset/IMG/image-3.jpg"
+        class="card img-responsive"
+        alt="Image 1"
+      />
+      <img
+        src="asset/IMG/image-8.jpg"
+        class="card img-responsive"
+        alt="Image 2"
+      />
+      <img
+        src="asset/IMG/image-22.jpg"
+        class="card img-responsive"
+        alt="Image 3"
+      />
+      <img
+        src="asset/IMG/image-32.jpg"
+        class="card img-responsive"
+        alt="Image 3"
+      />
+      <img
+        src="asset/IMG/image-33.jpg"
+        class="card img-responsive"
+        alt="Image 3"
+      />
+      <img
+        src="asset/IMG/image-34.jpg"
+        class="card img-responsive"
+        alt="Image 3"
+      />
+      <img
+        src="asset/IMG/image-35.jpg"
+        class="card img-responsive"
+        alt="Image 3"
+      />
+      <img
+        src="asset/IMG/image-36.jpg"
+        class="card img-responsive"
+        alt="Image 3"
+      />
+      <img
+        src="asset/IMG/image-37.jpg"
+        class="card img-responsive"
+        alt="Image 3"
+      />
+      <img
+        src="asset/IMG/image-38.jpg"
+        class="card img-responsive"
+        alt="Image 3"
+      />
+      <img
+        src="asset/IMG/image-39.jpg"
+        class="card img-responsive"
+        alt="Image 3"
+      />
+      <img
+        src="asset/IMG/image-42.jpg"
+        class="card img-responsive"
+        alt="Image 3"
+      />
+      <img
+        src="asset/IMG/image-45.jpg"
+        class="card img-responsive"
+        alt="Image 3"
+      />
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("img").click(function () {
+          var t = $(this).attr("src");
+          $(".modal-body").html("<img src='" + t + "' class='modal-img'>");
+          $("#myModal").modal();
+        });
+      });
+    </script>
+  </body>
+</html>

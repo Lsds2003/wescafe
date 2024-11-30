@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="asset/IMG/profile1-logo.jpg" />
+    <title>About Us</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-image: url(asset/IMG/image-46.jpg);
+        color: aliceblue;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .content {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 60px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 30px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .button {
+        text-align: center;
+        color: green;
+        padding: 10px;
+        margin-left: 739px;
+        width: 100px;
+        margin-right: 800px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+
+        transition: background-color 0.3s ease;
+
+        display: inline-block;
+
+        text-align: center;
+        text-decoration: none;
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+
+      .button a {
+        text-decoration: none;
+        color: green;
+        font-size: 20px;
+      }
+
+      .button:hover {
+        background-color: green;
+      }
+
+      /* Add responsiveness */
+      @media only screen and (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+        .content {
+          margin-top: 20px;
+        }
+        h1 {
+          font-size: 40px;
+        }
+        p {
+          font-size: 20px;
+        }
+        .button {
+          margin-left: 0;
+          margin-right: 0;
+          width: 50%;
+        }
+      }
+
+      @media only screen and (max-width: 480px) {
+        .container {
+          height: auto;
+          padding: 20px;
+        }
+        .content {
+          margin-top: 0;
+        }
+        h1 {
+          font-size: 30px;
+        }
+        p {
+          font-size: 16px;
+        }
+        .button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>About Us</h1>
+        <p>
+          Wes Cafe is a cozy coffee shop that specializes in serving
+          high-quality coffee. Our mission is to provide our customers with the
+          best coffee experience possible. We source our beans from the finest
+          coffee-growing regions around the world and roast them to perfection
+          in-house. Our expert baristas then use their skills to craft each cup
+          of coffee with care and precision. At Wes Cafe, we believe that coffee
+          is more than just a drink - it's a way of life. That's why we strive
+          to create a welcoming and comfortable atmosphere where our customers
+          can relax and enjoy their coffee. Whether you're looking for a quick
+          pick-me-up or a leisurely coffee break, Wes Cafe is the perfect place
+          to be. Come visit us and experience the difference that quality and
+          passion make.
+        </p>
+
+        <div class="button">
+          <button>
+            <a href="index.html">Back</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

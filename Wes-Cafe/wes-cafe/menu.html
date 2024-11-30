@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="asset/IMG/profile1-logo.jpg" />
+    <title>Cafe Menu</title>
+    <!-- CSS -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background: #000;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+}
+
+.menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #333;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.menu-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.menu-header img {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.menu-header h1 {
+    font-size: 36px;
+    color: #0f0;
+}
+
+.menu-section {
+    margin-bottom: 40px;
+}
+
+.menu-section h2, .menu-section h3, .menu-section h4 {
+    font-size: 28px;
+    color: #0f0;
+    border-bottom: 2px solid #0f0;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.menu-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.menu-table th, .menu-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.menu-table th {
+    font-size: 18px;
+    border-bottom: 2px solid #0f0;
+}
+
+.menu-table td {
+    font-size: 16px;
+    border-bottom: 1px solid #555;
+}
+
+.menu-item-desc {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-container input[type=text] {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #0f0;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+}
+
+.search-container input[type=text]:focus {
+    outline: none;
+    border-color: #0f0;
+}
+
+.search-results {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .menu-header h1 {
+        font-size: 28px;
+    }
+
+    .menu-section h2 {
+        font-size: 24px;
+    }
+
+    .menu-table th, .menu-table td {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-header h1 {
+        font-size: 22px;
+    }
+
+    .menu-section h2 {
+        font-size: 20px;
+    }
+
+    .menu-table th, .menu-table td {
+        font-size: 12px;
+    }
+
+    .menu-item-desc {
+        font-size: 12px;
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #aaa;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu-table {
+        font-size: 12px;
+    }
+
+    .menu-table th, .menu-table td {
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .menu-table {
+        font-size: 10px;
+    }
+
+    .menu-table th, .menu-table td {
+        padding: 2px;
+    }
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+h3::after {
+    content: "[Soda or Sprite]";
+    opacity: 0.5;
+    font-size: 0.8em;
+    margin-left: 5px;
+    color: #000000;
+}
+
+h4 {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+h4::after {
+    content: "[Popping Bubble or Jelly Bubble]";
+    opacity: 0.5;
+    font-size: 0.8em;
+    margin-left: 5px;
+    color: #9b9797;
+}
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="menu-header">
+            <img src="asset/IMG/profile-logo.png" alt="Cafe Logo">
+            <h1>Take a Sip</h1>
+        </div>
+        <!-- Search bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for items...">
+        </div>
+        <div class="search-results" id="searchResults"></div>
+        <div class="menu-section">
+            <h2>Hot Coffee</h2>
+            <table class="menu-table" id="hotCoffeeTable">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Medium</th>
+                        <th>Large</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>Espresso</div>
+                            <div class="menu-item-desc">(Pure Coffee shot)</div>
+                        </td>
+                        <td>RS. 350.00</td>
+                        <td>RS. 620.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Long Black</div>
+                            <div class="menu-item-desc">(Hot black coffee)</div>
+                        </td>
+                        <td>RS. 500.00</td>
+                        <td>RS. 620.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Espresso Doppio</div>
+                            <div class="menu-item-desc">(Double coffee shot)</div>
+                        </td>
+                        <td>RS. 700.00</td>
+                        <td>RS. 850.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Flat White</div>
+                            <div class="menu-item-desc">(Milk with double coffee shot)</div>
+                        </td>
+                        <td>RS. 730.00</td>
+                        <td>RS. 850.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Latte</div>
+                            <div class="menu-item-desc">(Light milk coffee)</div>
+                        </td>
+                        <td>RS. 690.00</td>
+                        <td>RS. 820.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Cappuccino</div>
+                            <div class="menu-item-desc">(Well balance milk coffee)</div>
+                        </td>
+                        <td>RS. 670.00</td>
+                        <td>RS. 800.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Café Mocha</div>
+                            <div class="menu-item-desc">(Coffee, milk, chocolate)</div>
+                        </td>
+                        <td>RS. 750.00</td>
+                        <td>RS. 900.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Caramel Macchiato</div>
+                            <div class="menu-item-desc">(Coffee, milk, caramel)</div>
+                        </td>
+                        <td>RS. 750.00</td>
+                        <td>RS. 900.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Hot Spanish Latte</div>
+                            <div class="menu-item-desc">(Coffee, milk, condensed milk)</div>
+                        </td>
+                        <td>RS. 750.00</td>
+                        <td>RS. 900.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="menu-section">
+            <h2>Cold Coffee</h2>
+            <table class="menu-table" id="coldCoffeeTable">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Medium</th>
+                        <th>Large</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>Iced Americano</div>
+                            <div class="menu-item-desc">(Black coffee with ice)</div>
+                        </td>
+                        <td>RS. 550.00</td>
+                        <td>RS. 650.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Iced Latte</div>
+                            <div class="menu-item-desc">(Light iced coffee)</div>
+                        </td>
+                        <td>RS. 720.00</td>
+                        <td>RS. 850.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Iced Mocha</div>
+                            <div class="menu-item-desc">(Iced coffee with chocolate flavor)</div>
+                        </td>
+                        <td>RS. 810.00</td>
+                        <td>RS. 950.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Iced Caramel Macchiato</div>
+                            <div class="menu-item-desc">(Iced coffee with caramel flavor)</div>
+                        </td>
+                        <td>RS. 810.00</td>
+                        <td>RS. 950.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Iced Spanish Latte</div>
+                            <div class="menu-item-desc">(Iced coffee with condensed milk)</div>
+                        </td>
+                        <td>RS. 810.00</td>
+                        <td>RS. 950.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="menu-section">
+          <h2>Hot Tea</h2>
+          <table class="menu-table" id="hotTeaTable">
+              <thead>
+                <tr>
+                    <th></th>
+                    <th>Normal</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                      <td>
+                          <div>Black Tea</div>
+                          <div class="menu-item-desc">(Traditional Sri Lankan Tea)</div>
+                      </td>
+                      <td>RS. 180.00</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <div>Milk Tea</div>
+                          <div class="menu-item-desc">(Tea,Milk)</div>
+                      </td>
+                      <td>RS. 200.00</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <div>Kade Tea</div>
+                          <div class="menu-item-desc">(Black Tea With Condensed Milk)</div>
+                      </td>
+                      <td>RS. 260.00</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <div>Green Tea</div>
+                          <div class="menu-item-desc">(Light and healthy tea)</div>
+                      </td>
+                      <td>RS. 250.00</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <div>Mint Tea</div>
+                          <div class="menu-item-desc">(Tea with mint)</div>
+                      </td>
+                      <td>RS. 250.00</td>
+                      <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                        <div>Strawberry Tea</div>
+                        <div class="menu-item-desc">(Strawberry flavored tea)</div>
+                    </td>
+                    <td>RS. 250.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                  <td>
+                      <div>Ginger Tea</div>
+                      <div class="menu-item-desc">(Ginger flavored tea with ginger pieces)</div>
+                  </td>
+                  <td>RS. 250.00</td>
+                  <td></td>
+              </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="menu-section">
+        <h2>Tea Pot</h2>
+        <div class="table-responsive">
+      <table class="menu-table" id="teaPotTable">
+        <thead>
+        <tr>
+            <th></th>
+          <th>Black Tea</th>
+          <th>Milk Tea</th>
+          <th>Green Tea</th>
+          <th>Mint Tea</th>
+          <th>Strawberry Tea</th>
+          <th>Ginger Tea</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Small</td>
+          <td>LKR 500.00</td>
+          <td>LKR 580.00</td>
+          <td>LKR 700.00</td>
+          <td>LKR 700.00</td>
+          <td>LKR 700.00</td>
+          <td>LKR 600.00</td>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td>LKR 800.00</td>
+          <td>LKR 960.00</td>
+          <td>LKR 880.00</td>
+          <td>LKR 880.00</td>
+          <td>LKR 880.00</td>
+          <td>LKR 990.00</td>
+        </tr>
+        <tr>
+          <td>Large</td>
+          <td>LKR 1300.00</td>
+          <td>LKR 1550.00</td>
+          <td>LKR 1500.00</td>
+          <td>LKR 1500.00</td>
+          <td>LKR 1500.00</td>
+          <td>LKR 1500.00</td>
+        </tr>
+    </tbody>
+    </table>
+     </div>
+    </div>
+      <div class="menu-section">
+        <h2>Iced Tea</h2>
+        <table class="menu-table" id="icedTeaTable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div>Blackcurrant Iced Tea</div>
+                        <div class="menu-item-desc">(Tea, ice, blackcurrant)</div>
+                    </td>
+                    <td>RS. 470.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Strawberry Iced Tea</div>
+                        <div class="menu-item-desc">(Tea, ice, strawberry flavor)</div>
+                    </td>
+                    <td>RS. 420.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Mint Iced Tea</div>
+                        <div class="menu-item-desc">(Iced with mint tea)</div>
+                    </td>
+                    <td>RS. 500.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Ginger Iced Tea</div>
+                        <div class="menu-item-desc">(Cool ginger tea)</div>
+                    </td>
+                    <td>RS. 500.00</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="menu-section">
+        <h3>Mojito</h3>
+        <table class="menu-table" id="mojitoTable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div>Classic Mojito</div>
+                        <div class="menu-item-desc">(Lime and soda with mint leaves)</div>
+                    </td>
+                    <td>RS. 500.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Strawberry Mojito</div>
+                        <div class="menu-item-desc">(Lime soda, strawberry flavor and mint flavor)</div>
+                    </td>
+                    <td>RS. 600.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Blackcurrant Mojito</div>
+                        <div class="menu-item-desc">(Blackcurrant flavor with mint lime soda)</div>
+                    </td>
+                    <td>RS. 600.00</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="menu-section">
+        <h2>House Blends</h2>
+        <table class="menu-table" id="houseBlendaTable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div>Hot Chocolate with Mushis</div>
+                        <div class="menu-item-desc">(Milk , chocolate with marshmallows)</div>
+                    </td>
+                    <td>RS. 770.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Iced Chocolate</div>
+                        <div class="menu-item-desc">(cool chocolate milk)</div>
+                    </td>
+                    <td>RS. 660.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Iced Caramel</div>
+                        <div class="menu-item-desc">(cool caramel milk)</div>
+                    </td>
+                    <td>RS. 640.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Iced Blackcurrant</div>
+                        <div class="menu-item-desc">(cool blackcurrant milk)</div>
+                    </td>
+                    <td>RS. 650.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Iced Banana</div>
+                        <div class="menu-item-desc">(cool banana milk)</div>
+                    </td>
+                    <td>RS. 800.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Lime Soda</div>
+                        <div class="menu-item-desc">(lime, iced, salt, pepper)</div>
+                    </td>
+                    <td>RS. 360.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Jelly Faluda</div>
+                        <div class="menu-item-desc">(faluda, jelly)</div>
+                    </td>
+                    <td>RS. 500.00</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="menu-section">
+        <h4>Bubble Tea</h4>
+        <table class="menu-table" id="bubbleTeaTable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div>Blackcurrant soda</div>
+                    </td>
+                    <td>RS. 790.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Blackcurrant milky<div>
+                    </td>
+                    <td>RS. 790.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Blackcurrant Bubble Tea</div>
+                    </td>
+                    <td>RS. 790.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Iced Apple Boba</div>
+                    </td>
+                    <td>RS. 790.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Iced coffee Boba</div>
+                    </td>
+                    <td>RS. 790.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Strawberry Bubble Tea</div>
+                    </td>
+                    <td>RS. 790.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Iced Choco Boba</div>
+                    </td>
+                    <td>RS. 790.00</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+   <!-- JavaScript for search functionality -->
+   <script>
+    // Function to perform search
+  function searchMenu() {
+      var input = document.getElementById('searchInput').value.toUpperCase();
+      var tables = document.getElementsByClassName('menu-table');
+      var sections = document.getElementsByClassName('menu-section');
+  
+      // Loop through each table
+      for (var i = 0; i < tables.length; i++) {
+          var table = tables[i];
+          var rows = table.getElementsByTagName('tr');
+          var section = sections[i];
+  
+          var sectionHasMatch = false;
+  
+          // Loop through each row in the table
+          for (var j = 1; j < rows.length; j++) { // Start at 1 to skip header row
+              var row = rows[j];
+              var cells = row.getElementsByTagName('td');
+              var found = false;
+  
+              // Loop through each cell in the row
+              for (var k = 0; k < cells.length; k++) {
+                  var cell = cells[k];
+                  if (cell) {
+                      var textValue = cell.textContent || cell.innerText;
+                      if (textValue.toUpperCase().indexOf(input) > -1) {
+                          found = true;
+                          sectionHasMatch = true;
+                          break;
+                      }
+                  }
+              }
+  
+              // Show or hide row based on search result
+              if (found) {
+                  row.style.display = '';
+              } else {
+                  row.style.display = 'none';
+              }
+          }
+  
+          // Show or hide section based on search result
+          if (sectionHasMatch) {
+              section.style.display = ''; // Show section if it has a match
+          } else {
+              section.style.display = 'none'; // Hide section if no match
+          }
+      }
+  }
+  
+  // Add event listener to search input
+  document.getElementById('searchInput').addEventListener('keyup', function() {
+      searchMenu();
+  });
+  
+  </script>
+
+</body>
+</html>
